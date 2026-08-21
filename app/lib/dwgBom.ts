@@ -279,6 +279,9 @@ export async function extractDwgBom(file: File): Promise<ExtractedBomItem[]> {
   const parser = await parserPromise;
   const buffer = await file.arrayBuffer();
   const raw = parser.dwg_read_data(buffer, Dwg_File_Type.DWG);
+  if (raw === undefined) {
+    throw new Error("DWG 파일을 읽지 못했습니다.");
+  }
   try {
     const database = parser.convert(raw) as { entities?: DwgEntityLike[] };
     const entries = textEntries(database.entities ?? []);

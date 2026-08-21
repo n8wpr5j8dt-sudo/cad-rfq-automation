@@ -1,21 +1,26 @@
 {
-  "name": "site-creator-vinext-starter",
+  "name": "cad-rfq-automation",
   "version": "0.1.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
-    "start": "vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "npm run build",
+    "sites:dev": "vinext dev",
+    "sites:build": "vinext build",
+    "sites:start": "vinext start",
+    "sites:test": "npm run sites:build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
     "@mlightcad/libredwg-web": "^0.7.9",
     "drizzle-orm": "0.45.2",
+    "next": "^16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
